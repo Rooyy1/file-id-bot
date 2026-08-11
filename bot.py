@@ -8,10 +8,16 @@ from aiogram.client.bot import DefaultBotProperties
 import os
 from dotenv import load_dotenv
 
+# Загружаем переменные из .env файла
 load_dotenv()
+
 logging.basicConfig(level=logging.INFO)
 
-BOT_TOKEN = "8834995664:AAEr_t_SyYgc086HMIqk_dafEvywiHfIC54"
+# Берем токен из переменной окружения
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+if not BOT_TOKEN:
+    raise ValueError("❌ BOT_TOKEN не найден в .env файле! Создайте файл .env и добавьте BOT_TOKEN=ваш_токен")
 
 # Ускоренная сессия
 session = AiohttpSession(timeout=30)
