@@ -14,12 +14,8 @@ load_dotenv()
 logging.basicConfig(level=logging.INFO)
 
 # Берем токен из переменной окружения
-BOT_TOKEN = os.getenv("BOT_TOKEN")
+BOT_TOKEN = "8978049247:AAFNO24Sjhz3qVH7dntFHld4xwaNqKiRTO0"
 
-if not BOT_TOKEN:
-    raise ValueError("❌ BOT_TOKEN не найден в .env файле! Создайте файл .env и добавьте BOT_TOKEN=ваш_токен")
-
-# Ускоренная сессия
 session = AiohttpSession(timeout=30)
 bot = Bot(
     token=BOT_TOKEN,
